@@ -1,0 +1,70 @@
+<odoo>
+
+  <record model="ir.actions.act_window" id="zoo.action_animal">
+    <field name="name">animal</field>
+    <field name="res_model">zoo.animal</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record model='ir.ui.view' id='animal_tree_view'>
+    <field name="name">animal.tree</field>
+    <field name="model">zoo.animal</field>
+    <field name="arch" type="xml">
+      <tree string="animal">
+        <field name="nombre"/>
+        <field name="fechanacimiento"/>
+        <field name="idszoologicos"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="zoo.action_zoologico">
+    <field name="name">zoologico</field>
+    <field name="res_model">base.empresa</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record model="ir.actions.act_window" id="zoo.action_habitat">
+    <field name="name">habitat</field>
+    <field name="res_model">zoo.habitat</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record model='ir.ui.view' id='espacio_tree_view'>
+    <field name="name">habitat.tree</field>
+    <field name="model">zoo.habitat</field>
+    <field name="arch" type="xml">
+      <tree string="habitat">
+        <field name="nombre"/>
+        <field name="tipo"/>
+        <field name="idszoologicos"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="zoo.action_tratamiento">
+    <field name="name">tratamiento</field>
+    <field name="res_model">zoo.tratamiento</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record model='ir.ui.view' id='tratamiento_tree_view'>
+    <field name="name">tratamiento.tree</field>
+    <field name="model">zoo.tratamiento</field>
+    <field name="arch" type="xml">
+      <tree string="tratamiento">
+        <field name="nombre"/>
+        <field name="horas"/>
+      </tree>
+    </field>
+  </record>
+
+  <menuitem name="Zoo" id="zoo.menu_root"/>
+  <menuitem name="Menu" id="zoo.menu" parent="zoo.menu_root"/>
+
+  <menuitem name="Animal" id="zoo.menu_animal" parent="zoo.menu" action="zoo.action_animal"/>
+  <menuitem name="Zoologico" id="zoo.menu_zoologico" parent="zoo.menu" action="zoo.action_zoologico"/>
+  <menuitem name="Habitat" id="zoo.menu_habitat" parent="zoo.menu" action="zoo.action_habitat"/>
+  <menuitem name="Tratamiento" id="zoo.menu_tratamiento" parent="zoo.menu" action="zoo.action_tratamiento"/>
+
+</odoo>
